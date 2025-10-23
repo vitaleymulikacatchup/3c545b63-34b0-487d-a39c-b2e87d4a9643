@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #333;
+    background-color: #f5f5f5;
+  }
+}
+
+@layer components {
+  .weather-card {
+    @apply bg-white rounded-lg shadow-sm border border-sinoptik-border p-4;
+  }
+  
+  .weather-icon {
+    @apply w-8 h-8 object-contain;
+  }
+  
+  .temperature {
+    @apply font-bold text-lg;
+  }
+  
+  .city-link {
+    @apply text-sinoptik-blue hover:text-sinoptik-dark-blue transition-colors duration-200;
+  }
+  
+  .modal-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50;
+  }
+  
+  .modal-content {
+    @apply bg-white rounded-lg max-w-md w-full mx-4 p-6 relative;
+  }
+  
+  .btn-primary {
+    @apply bg-sinoptik-blue text-white px-6 py-2 rounded hover:bg-sinoptik-dark-blue transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-700 px-6 py-2 rounded hover:bg-gray-300 transition-colors duration-200;
+  }
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.week-forecast {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .week-forecast {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .week-forecast {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
